@@ -53,7 +53,6 @@ export default class Respondy {
   constructor(url, options) {
     // this.$el = document.querySelector(selector);
     this.options = options;
-    // this.selectedId = options.selectedId;
     this.url = url;
 
     // this.#render();
