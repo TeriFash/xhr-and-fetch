@@ -1,33 +1,3 @@
-const getDefault = (url = '', method = 'GET', options = {}) => {
-  let mainUrl = options.urlCustom ? url : `https://jsonplaceholder.typicode.com/${url}`
-
-  async function getData() {
-    let url = mainUrl;
-    try {
-        let res = await fetch(url);
-        return await res.json();
-    } catch (error) {
-        console.log(error);
-    }
-  }
-  
-  async function renderData() {
-    let dataObg = await getData();
-  
-    let html = '';
-    dataObg.map((item, i) => {
-        let htmlSegment = `<li class="data-item-${i+1}">${item.name}</li>`;
-  
-        html += htmlSegment;
-    });
-  
-    let container = document.querySelector('#target-select');
-    container.innerHTML = html;
-  }
-
-  renderData();
-}
-
 async function postDefault(url = '', options = {}) {
   let mainUrl = options.urlCustom ? url : `https://jsonplaceholder.typicode.com/${url}`
   let data = {
@@ -50,20 +20,57 @@ async function postDefault(url = '', options = {}) {
 }
 
 export default class Respondy {
-  constructor(url, options) {
+  constructor(url, options = {}) {
     // this.$el = document.querySelector(selector);
     this.options = options;
-    this.url = url;
+    this.url = options.urlSet ? url : `https://jsonplaceholder.typicode.com/${url}`;
 
     // this.#render();
     // this.#setup();
   }
 
-  getRespond() {
-    getDefault(this.url)
+  async getData() {
+    try {
+        let res = await fetch(this.url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
   }
 
-  postRespond() {
-    postDefault(this.url)
+  async renderData( elem = 'li', selector = '#target-select') {
+    let dataObg = await this.getData()
+    let html = ''
+    let container = document.querySelector(selector)
+
+    dataObg.map((item, i) => {
+        let htmlSegment = `<${elem} class="data-item-${i+1}">${item.name}</${elem}>`
+  
+        html += htmlSegment
+    });
+  
+    container.innerHTML = html
+  }
+
+  getRespond() {
+    this.renderData()
+  }
+
+  async postRespond() {
+    const headers = {
+      'Content-Type': 'application/json'
+    }
+    let fetchData = { 
+      method: this.options.method || 'POST', 
+      body: JSON.stringify(this.options.body || {}),
+      headers: this.options.headers || headers
+    }
+    try {
+        let res = await fetch(this.url, fetchData);
+        console.log(await res, 'res');
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
   }
 }

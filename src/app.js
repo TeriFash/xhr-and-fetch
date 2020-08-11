@@ -6,3 +6,4 @@ const url = 'users'
 const users = new Respondy(url);
 
 users.getRespond();
+
