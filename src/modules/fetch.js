@@ -19,7 +19,7 @@ async function postDefault(url = '', options = {}) {
   }
 }
 
-export default class Respondy {
+export default class SimplerFetch {
   constructor(url, options = {}) {
     // this.$el = document.querySelector(selector);
     this.options = options;

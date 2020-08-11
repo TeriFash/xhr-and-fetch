@@ -1,9 +1,7 @@
-// import { simpleRequest }  from "./modules/xhr";
-import Respondy from "./modules/fetch";
+import { SimplerFetch } from "./modules";
 import "./style.scss";
 
 const url = 'users'
-const users = new Respondy(url);
+const users = new SimplerFetch(url);
 
 users.getRespond();
-

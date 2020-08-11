@@ -1,4 +1,4 @@
-const simpleRequest = (url = '', method = 'GET', body = null, options = {}) => {
+export default function simplerXHR(url = '', method = 'GET', body = null, options = {}) {
   return new Promise((resolve, reject) => {
     const finalUrl = options.urlCustom ? url : `https://jsonplaceholder.typicode.com/${url}`
     const xhr = new XMLHttpRequest()
@@ -19,5 +19,3 @@ const simpleRequest = (url = '', method = 'GET', body = null, options = {}) => {
     xhr.send(JSON.stringify(body))
   })
 }
-
-export { simpleRequest }
