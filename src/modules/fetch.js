@@ -1,24 +1,3 @@
-// async function postDefault(url = '', options = {}) {
-//   let mainUrl = options.urlCustom ? url : `https://jsonplaceholder.typicode.com/${url}`
-//   let data = {
-//     name: 'Sara'
-//   }
-//   let fetchData = {
-//     method: 'POST',
-//     body: JSON.stringify(data),
-//     headers: {
-//       'Content-Type': 'application/json',
-//     }
-//   }
-//   try {
-//       let res = await fetch(mainUrl, fetchData);
-//       console.log(await res);
-//       return await res.json();
-//   } catch (error) {
-//       console.log(error);
-//   }
-// }
-
 const staticUrl = 'https://jsonplaceholder.typicode.com/'
 
 const getTemplate = (data = [], elem) => {
