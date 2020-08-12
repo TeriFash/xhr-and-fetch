@@ -6,12 +6,12 @@ const getTemplate = (data = [], elem) => {
 
   const items = data.map((item, i) => {
     return `
-      <${elemItem} class="item-${i + 1}">${item.name}</${elemItem}>
+      <${elemItem} class="is-visible">${item.name}</${elemItem}>
     `;
   });
 
   return `
-      <${elemWwrap} class="wrapper__list">
+      <${elemWwrap} data-type="content" class="content__list">
         ${items.join("")}
       </${elemWwrap}>
   `;
@@ -23,7 +23,7 @@ export default class SimplerFetch {
     this.url = options.urlCustom
       ? url
       : `${staticUrl}${url}`;
-    this.$el = document.querySelector(options.selector || "#selector");
+    this.$el = document.querySelector(options.selector || "#wrapper");
 
     // this.#render();
     // this.#setup();

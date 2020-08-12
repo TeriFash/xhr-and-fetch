@@ -24,11 +24,4 @@ users.getRespond()
     
 const usersSearch = new SimplerSearch()
 
-// async function usersGetRespond() {
-//     let data = users.getRespond()
-//     const usersSearch = new SimplerSearch(await data)
-// }
-
-// usersGetRespond()
-
 

@@ -11,15 +11,19 @@ export default class SimplerSearch  {
 
     getFiltered(e) {
         const term = e.target.value.toLowerCase()
-        const dataList = document.querySelectorAll('.wrapper__list *')
+        const dataList = document.querySelectorAll('[data-type="content"] > *')
         
         Array.from(dataList).forEach(function(item){
             const title = item.textContent
 
             if (title.toLowerCase().indexOf(term) != -1) {
-                item.style.display = 'block'
+                // item.style.display = 'block'
+                item.classList.remove('is-hide')
+                item.classList.add('is-visible')
             } else {
-                item.style.display = 'none'
+                // item.style.display = 'none'
+                item.classList.toggle('is-visible')
+                item.classList.add('is-hide')
             }
         })
     }
