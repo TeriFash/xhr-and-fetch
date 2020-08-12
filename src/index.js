@@ -1,5 +1,5 @@
-import { SimplerFetch } from "./modules";
-import "./style.scss";
+import { SimplerFetch } from "./modules"
+import "./style.scss"
 
 {
     const dataHead = [
@@ -17,7 +17,7 @@ import "./style.scss";
 const usersOpt = {
     // element: 'span'
 }
-const users = new SimplerFetch('users', usersOpt);
+const users = new SimplerFetch('users', usersOpt)
 
-users.getRespond();
+users.getRespond()
 
