@@ -1,4 +1,4 @@
-const staticUrl = 'https://jsonplaceholder.typicode.com/'
+const staticUrl = "https://jsonplaceholder.typicode.com/";
 
 const getTemplate = (data = [], elem) => {
   const elemWwrap = elem ? "div" : "ul";
@@ -6,12 +6,12 @@ const getTemplate = (data = [], elem) => {
 
   const items = data.map((item, i) => {
     return `
-      <${elemItem} class="is-visible">${item.name}</${elemItem}>
+      <${elemItem} class="is-visible list-group-item ">${item.name}</${elemItem}>
     `;
   });
 
   return `
-      <${elemWwrap} data-type="content" class="content__list">
+      <${elemWwrap} data-type="content" class="content__list list-group">
         ${items.join("")}
       </${elemWwrap}>
   `;
@@ -20,9 +20,7 @@ const getTemplate = (data = [], elem) => {
 export default class SimplerFetch {
   constructor(url, options = {}) {
     this.options = options;
-    this.url = options.urlCustom
-      ? url
-      : `${staticUrl}${url}`;
+    this.url = options.urlCustom ? url : `${staticUrl}${url}`;
     this.$el = document.querySelector(options.selector || "#wrapper");
 
     // this.#render();
@@ -30,10 +28,10 @@ export default class SimplerFetch {
   }
 
   async render() {
-    const { element } = this.options
-    let data = await this.getData()
+    const { element } = this.options;
+    let data = await this.getData();
 
-    this.$el.innerHTML = getTemplate(data, element)
+    this.$el.innerHTML = getTemplate(data, element);
 
     // return data
   }
@@ -49,8 +47,8 @@ export default class SimplerFetch {
   }
 
   async getRespond() {
-    let data = await this.render()
-    return data
+    let data = await this.render();
+    return data;
   }
 
   async postRespond() {

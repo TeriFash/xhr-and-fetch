@@ -13,14 +13,23 @@
 
   <body>
     <div id="app" class="app">
-      <h1 class="title"></h1>
-      <p class="sup-title"></p>
+      <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand text-white">XHR & Fetch</a>
+        <form class="form-inline search-form" id="search-form">
+          <input
+            class="form-control mr-sm-2 shadow-lg rounded"
+            type="search"
+            placeholder="Search data..."
+            aria-label="Search"
+          />
+        </form>
+      </nav>
+      <div class="container">
+        <!-- <h1 class="title text-primary"></h1> -->
+        <!-- <p class="sup-title"></p> -->
 
-      <form class="search-form" id="search-form">
-        <input type="text" name="search" placeholder="Search data.." />
-      </form>
-
-      <div id="wrapper" class="wrapper"></div>
+        <div id="wrapper" class="wrapper"></div>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>

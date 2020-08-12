@@ -1,16 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .app {
-  padding-top: 5rem;
-  display: flex;
+  //   padding-top: 5rem;
+  //   display: flex;
   flex-direction: column;
   justify-content: center;
   font-family: "Roboto", sans-serif;
   align-items: center;
 
+  .title {
+    margin-bottom: 1em;
+  }
+
   .wrapper {
-    width: 500px;
-    margin-top: 3em;
+    //  width: 500px;
+    margin-top: 4em;
   }
 
   .content__list {
@@ -42,7 +46,8 @@
       }
 
       &:nth-child(odd) {
-        background-color: rgb(255, 246, 227);
+        //   background-color: rgb(255, 246, 227);
+        background-color: var(--light);
       }
 
       &.is-visible {
@@ -64,7 +69,7 @@
 
 .title {
   text-align: center;
-  color: rgb(253, 143, 0);
+  //   color: rgb(253, 143, 0);
 }
 
 .search-form {
