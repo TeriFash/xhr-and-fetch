@@ -29,24 +29,28 @@ export default class SimplerFetch {
     // this.#setup();
   }
 
-  async #render() {
+  async render() {
     const { element } = this.options
     let data = await this.getData()
 
     this.$el.innerHTML = getTemplate(data, element)
+
+    // return data
   }
 
   async getData() {
     try {
       let res = await fetch(this.url);
+
       return await res.json();
     } catch (error) {
       console.log(error);
     }
   }
 
-  getRespond() {
-    this.#render()
+  async getRespond() {
+    let data = await this.render()
+    return data
   }
 
   async postRespond() {

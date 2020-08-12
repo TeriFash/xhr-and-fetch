@@ -1,4 +1,5 @@
 import { SimplerFetch } from "./modules"
+import SimplerSearch from './modules/search';
 import "./style.scss"
 
 {
@@ -20,4 +21,14 @@ const usersOpt = {
 const users = new SimplerFetch('users', usersOpt)
 
 users.getRespond()
+    
+const usersSearch = new SimplerSearch()
+
+// async function usersGetRespond() {
+//     let data = users.getRespond()
+//     const usersSearch = new SimplerSearch(await data)
+// }
+
+// usersGetRespond()
+
 
