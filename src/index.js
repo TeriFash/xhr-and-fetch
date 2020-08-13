@@ -15,6 +15,8 @@ import "./style.scss";
 //   });
 // }
 
+console.log("\x1b[44m 🧐 ➜", "");
+
 const usersOpt = {
   // element: 'span'
 };

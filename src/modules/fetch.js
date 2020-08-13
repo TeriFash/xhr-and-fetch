@@ -1,7 +1,7 @@
 const staticUrl = "https://jsonplaceholder.typicode.com/";
 
 const getTemplate = (data = [], elem) => {
-  const elemWwrap = elem ? "div" : "ul";
+  const elemWrap = elem ? "div" : "ul";
   const elemItem = elem ?? "li";
 
   const items = data.map((item, i) => {
@@ -11,9 +11,9 @@ const getTemplate = (data = [], elem) => {
   });
 
   return `
-      <${elemWwrap} data-type="content" class="content__list list-group">
+      <${elemWrap} data-type="content" class="content__list list-group">
         ${items.join("")}
-      </${elemWwrap}>
+      </${elemWrap}>
   `;
 };
 
